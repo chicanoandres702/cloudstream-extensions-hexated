@@ -8,7 +8,6 @@ import com.lagradost.cloudstream3.utils.httpsify
 import com.lagradost.cloudstream3.utils.loadExtractor
 import org.jsoup.nodes.Element
 
-
 open class Kissasian : MainAPI() {
     override var mainUrl = "https://kissasian.com.lv"
     override var name = "Kissasian"
