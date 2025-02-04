@@ -9,7 +9,7 @@ import com.lagradost.cloudstream3.utils.loadExtractor
 import org.jsoup.nodes.Element
 
 open class Kissasian : MainAPI() {
-    override var mainUrl = "https://kissasian.pe"
+    override var mainUrl = "https://kissasian.com.lv"
     override var name = "Kissasian"
     override val hasMainPage = true
     override val hasDownloadSupport = true
