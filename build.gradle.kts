@@ -85,18 +85,21 @@ subprojects {
         // these dependencies can include any of those which are added by the app,
         // but you dont need to include any of them if you dont need them
         // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
-        implementation("com.example:conflictingLibrary:1.0") {
+        implementation(kotlin("stdlib")) {
+            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
+        }        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
+        implementation("org.jsoup:jsoup:1.17.2") {
             exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
         }
-        implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
-        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
-        implementation("org.jsoup:jsoup:1.17.2") // html parser
-
-        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
-
-        implementation("io.karn:khttp-android:0.1.2")
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-        implementation("org.mozilla:rhino:1.7.14") //run JS
+        implementation("io.karn:khttp-android:0.1.2") {
+            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
+        }
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0") {
+            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
+        }
+        implementation("org.mozilla:rhino:1.7.14")  {
+            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
+        }
 
         implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
     }
