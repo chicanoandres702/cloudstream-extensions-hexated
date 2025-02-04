@@ -37,7 +37,11 @@ jobs:
         with:
           distribution: "adopt"
           java-version: 17  # Changed to Java 17
-
+          
+      - name: Setup Kotlin
+        uses: JetBrains/gradle-kotlin-dsl-runner@v2
+        with:
+          kotlin-version: '2.1.0' # Make sure this matches your gradle file
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
