@@ -32,16 +32,15 @@ jobs:
       - name: Clean old builds
         run: rm $GITHUB_WORKSPACE/builds/*.cs3 || true
 
-      - name: Setup JDK 17  # Changed from JDK 11 to JDK 17
+      - name: Setup JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: "adopt"
-          java-version: 17  # Changed to Java 17
-          
-      - name: Setup Kotlin
-        uses: JetBrains/gradle-kotlin-dsl-runner@v2
-        with:
-          kotlin-version: '2.1.0' # Make sure this matches your gradle file
+          java-version: 17
+
+      - name: Set up Gradle
+        uses: gradle/gradle-build-action@v2 # Or a later version
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
