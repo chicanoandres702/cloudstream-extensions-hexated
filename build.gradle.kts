@@ -73,22 +73,23 @@ subprojects {
         }
     }
 
-        dependencies {
-            val apk: Configuration by configurations
-            val implementation: Configuration by configurations
+     dependencies {
+        val apk: Configuration by configurations
+        val implementation: Configuration by configurations
 
-            // Stubs for all Cloudstream classes
-            apk("com.lagradost:cloudstream3:pre-release")
+        // Stubs for all Cloudstream classes
+        apk("com.lagradost:cloudstream3:pre-release")
 
-            implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
-            implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
-            implementation("org.jsoup:jsoup:1.17.2") // html parser
-            implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
-            implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
-            implementation("io.karn:khttp-android:0.1.2")
-            implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-            implementation("org.mozilla:rhino:1.7.14") //run JS
-        }
+        implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
+        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
+        implementation("org.jsoup:jsoup:1.17.2") // html parser
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("io.karn:khttp-android:0.1.2")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+        implementation("org.mozilla:rhino:1.7.14") //run JS
+    }
+}
 
 task<Delete>("clean") {
     delete(rootProject.buildDir)
