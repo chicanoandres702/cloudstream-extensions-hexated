@@ -85,21 +85,12 @@ subprojects {
         // these dependencies can include any of those which are added by the app,
         // but you dont need to include any of them if you dont need them
         // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
-        implementation(kotlin("stdlib")) {
-            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
-        }        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
-        implementation("org.jsoup:jsoup:1.17.2") {
-            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
-        }
-        implementation("io.karn:khttp-android:0.1.2") {
-            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
-        }
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0") {
-            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
-        }
-        implementation("org.mozilla:rhino:1.7.14")  {
-            exclude(group = "com.fasterxml.jackson.core", module = "jackson-core")
-        }
+        implementation(kotlin("stdlib"))        
+        implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
+        implementation("org.jsoup:jsoup:1.17.2")
+        implementation("io.karn:khttp-android:0.1.2")
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
+        implementation("org.mozilla:rhino:1.7.14")
 
         implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
     }
