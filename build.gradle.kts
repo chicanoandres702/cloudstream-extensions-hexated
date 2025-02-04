@@ -10,15 +10,13 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        // Shitpack repo which contains our tools and dependencies
         maven("https://jitpack.io")
     }
 
     dependencies {
         classpath("com.android.tools.build:gradle:7.3.0")
-        // Cloudstream gradle plugin which makes everything work and builds plugins
         classpath("com.github.recloudstream:gradle:-SNAPSHOT")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.22")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0") // Kotlin 2.1.0
     }
 }
 
@@ -59,13 +57,13 @@ subprojects {
         }
 
         compileOptions {
-            sourceCompatibility = JavaVersion.VERSION_17
-            targetCompatibility = JavaVersion.VERSION_17
+            sourceCompatibility = JavaVersion.VERSION_17 //Java 17
+            targetCompatibility = JavaVersion.VERSION_17 // Java 17
         }
 
         tasks.withType<KotlinCompile> {
             kotlinOptions {
-                jvmTarget = "17" // Required
+                jvmTarget = "17"
                 // Disables some unnecessary features
                 freeCompilerArgs = freeCompilerArgs +
                         "-Xno-call-assertions" +
@@ -82,17 +80,14 @@ subprojects {
         // Stubs for all Cloudstream classes
         apk("com.lagradost:cloudstream3:pre-release")
 
-        // these dependencies can include any of those which are added by the app,
-        // but you dont need to include any of them if you dont need them
-        // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
-        implementation(kotlin("stdlib"))        
+        implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
         implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
-        implementation("org.jsoup:jsoup:1.17.2")
+        implementation("org.jsoup:jsoup:1.17.2") // html parser
+        implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0") //Jackson version
+        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0") //Jackson version
         implementation("io.karn:khttp-android:0.1.2")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
-        implementation("org.mozilla:rhino:1.7.14")
-
-        implementation("com.fasterxml.jackson.core:jackson-core:2.13.0")
+        implementation("org.mozilla:rhino:1.7.14") //run JS
     }
 }
 
