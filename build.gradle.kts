@@ -14,7 +14,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("com.android.tools.build:gradle:7.3.1")
+        classpath("com.android.tools.build:gradle:7.3.0")
         classpath("com.github.recloudstream:gradle:-SNAPSHOT")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.1.0") // Kotlin 2.1.0
     }
@@ -61,15 +61,8 @@ subprojects {
             targetCompatibility = JavaVersion.VERSION_17 // Java 17
         }
 
-        tasks.withType<KotlinCompile> {
-            kotlinOptions {
-                jvmTarget = "17"
-                // Disables some unnecessary features
-                freeCompilerArgs = freeCompilerArgs +
-                        "-Xno-call-assertions" +
-                        "-Xno-param-assertions" +
-                        "-Xno-receiver-assertions"
-            }
+        kotlinOptions {
+            jvmTarget = "17"
         }
     }
 
@@ -88,6 +81,7 @@ subprojects {
         implementation("io.karn:khttp-android:0.1.2")
         implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
         implementation("org.mozilla:rhino:1.7.14") //run JS
+
     }
 }
 
