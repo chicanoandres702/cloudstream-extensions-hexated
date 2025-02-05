@@ -75,8 +75,8 @@ subprojects {
         // these dependencies can include any of those which are added by the app,
         // but you dont need to include any of them if you dont need them
         // https://github.com/recloudstream/cloudstream/blob/master/app/build.gradle
-
-        implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
+        implementation(kotlin("stdlib", "2.1.0")) // Add this line, using the same version as in the root build.gradle.kts
+        // implementation(kotlin("stdlib")) // adds standard kotlin features, like listOf, mapOf etc
         implementation("com.github.Blatzar:NiceHttp:0.4.11") // http library
         implementation("org.jsoup:jsoup:1.17.2") // html parser
         implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.16.1")
